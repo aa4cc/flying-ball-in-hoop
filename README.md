@@ -1,15 +1,4 @@
-## Raspi install
-# OpenCV3
-Follow the instruction in http://www.pyimagesearch.com/2016/04/18/install-guide-raspberry-pi-3-raspbian-jessie-opencv-3/
+# Ball in double hoop system
+This repository contains codes and drawings for the ball in a double system. A draft of a video presenting this system is to be found under [this link](https://youtu.be/GBKhRHtjpvQ).
 
-pip install picamera
-pip install click
-pip install imutils
-
-sudo apt-get install git
-git clone git@gitlab.fel.cvut.cz:gurtnmar/flying-ball.git
-
-
-pip install virtualenv
-virtualenv -p /usr/bin/python3 cv
-source cv/bin/activate
+As the codes still undergo rapid changes, they are not well documented. The documentation should get better as the project will progress and things settle down.
