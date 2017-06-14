@@ -1,20 +1,13 @@
-function [ K ] = trajStabController( t_star, x_star, T, Q, Qf, R, prms )
+function [ K ] = trajStabController( t_star, x_star, u_star, T, Q, Qf, R, prms )
 
 %% Linearization around the optimal trajectory
-a =  prms.out.a_bar;
-b =  prms.out.b_bar;
-c =  prms.out.c_bar;
-d =  prms.out.d_bar;
-e =  prms.out.e_bar;
-
 % x := [Dth; psi; Dpsi]
 A = zeros(numel(t_star), 3, 3);
 B = zeros(numel(t_star), 3, 1);
 
 %% Linearize the system along the trajectory
 for i=1:numel(t_star)
-    Ak_c = [0 0 0; 0 0 1; -d/a -c/a*cos(x_star(i,2+1)) -b/a]; % system matrix of the linearized continuous model
-    Bk_c = [1;0;e/a];
+    [Ak_c, Bk_c] = ballInAHoop3n_ODEFUN_linMatrices(x_star(i,2:end)', u_star(i), prms);
     
     A(i,:,:) = eye(3) + T*Ak_c;
     B(i,:,:) = T*Bk_c;

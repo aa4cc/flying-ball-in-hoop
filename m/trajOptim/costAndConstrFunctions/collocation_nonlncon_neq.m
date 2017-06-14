@@ -9,4 +9,3 @@ Dpsi = x(1:(N-1),4);
 cneq = -prms.g*cos(psi)-(prms.Ro-prms.Rb).*Dpsi.^2;
 
 end
-

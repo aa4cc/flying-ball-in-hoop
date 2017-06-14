@@ -6,7 +6,7 @@ params_init;
 
 % Number of knots
 N = 50;
-umax = 100;
+umax = 2;
 psi_des = -70/180*pi;
 x0 = [0;0;psi_des;0];
 xf_des = [0;0;psi_des;0];
@@ -25,12 +25,20 @@ xf_hardcon{2}.x = [-psi_des;0];
     'x0', x0, ...
     'xf_hardcon', xf_hardcon, ...
     'grad', @costFun_u_grad, ...
-    'nlcon_eq', @collocation_nonlncon_eq, ...
-    'nlcon_eq_jac', @collocation_nonlncon_eq_J, ...
+    'nlcon_eq', @collocation_nonlncon_eq2, ...
+    'nlcon_eq_jac', @collocation_nonlncon_eq_J2, ...
     'nlcon_neq', @collocation_nonlncon_neq, ...
     'nlcon_neq_jac', @collocation_nonlncon_neq_J, ...
     'Tf_lim', [0.25 1]);
 Tf = N*Ts;
+
+% Since the optimal trajevtory obtained by solution of the NLP problem have
+% shifted state trajecotry from the control trajectory (states x_k are from
+% k=1,...,N and controls u_k are from k=0,...N-1) augment these
+% trajectories so that they both star at k=0 and end at k=N
+t_star = [t_star'; t_star(end) + Ts];
+x_star = [x0'; x_star];
+u_star = [u_star; 0];
 
 traj = Traj(t_star, x_star, u_star, prms);
 save(sprintf('optimTrajectories/makeItOscilate_N%d_T%.1f_umax%d.mat', N, Tf, umax), 'traj', 'Ts', 'xf_des')
@@ -43,7 +51,7 @@ Dth0 = x0(2);
 psi0 = x0(3);
 Dpsi0 = x0(4);
 
-DDth = timeseries([u_star;0;0], [t_star, Tf, Tf+1e2]);
+tau = timeseries([u_star;0;0], [t_star; Tf; Tf+1e2]);
 
 sim('../hybridModel/ballInaHoop_SF', [0 t_star(end)+1]);
 

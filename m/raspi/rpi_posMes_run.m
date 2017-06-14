@@ -1,45 +1,52 @@
-function rpi_posMes_run( fps, num_frames, tracking, stream, exposition_time, ip_rpi )
+function rpi_posMes_run( mypi, fps, num_frames, stream, exposition_time )
 
 if nargin < 3
-    tracking = 0;
-end
-
-if nargin < 4
     stream = 0;
 end
 
-if nargin < 5
+if nargin < 4
     exposition_time = 10;
 end
 
-%%
-P = mfilename('fullpath');
-[pathstr,~,~] = fileparts(P);
 
-fileID = fopen(fullfile(pathstr, 'remoteCmds.txt'),'w');
-% fprintf(fileID,'source cv/bin/activate\n');
-% fprintf(fileID,'~/flying-ball/rpi_posMeas/posMeas_withoutThreads.py -f %d -n %d -i %s 9898 -e %d', fps, num_frames, ip_host, exposition_time);
-fprintf(fileID,'taskset 0x08 ~/flying-ball/rpi_posMeas/posMeas_withoutThreads_zmq.py -f %d -n %d -e %d', fps, num_frames, exposition_time);
-
-if tracking
-    fprintf(fileID,' -t');
-end
+cmd = sprintf('taskset 0x08 ~/flying-ball/raspi-ballpos/posMeas.py -f %d -n %d -e %d -p', fps, num_frames, exposition_time);
 
 if stream
-    fprintf(fileID,' -s t');
+    cmd = strcat(cmd, ' -s t');
 end
 
-fprintf(fileID,'\n');
-fclose(fileID);
-%%
-plink_path = fullfile(pathstr, 'plink.exe');
-cert_path = fullfile(pathstr, 'key.ppk');
-cmds_path = fullfile(pathstr, 'remoteCmds.txt');
+cmd = strcat(cmd, ' &>/dev/null &');
 
-system(sprintf('start /b %s -ssh pi@%s -i %s -m %s', plink_path, ip_rpi, cert_path, cmds_path ))
+system(mypi, cmd);
+
+% 
+% 
+% %%
+% P = mfilename('fullpath');
+% [pathstr,~,~] = fileparts(P);
+% 
+% fileID = fopen(fullfile(pathstr, 'remoteCmds.txt'),'w');
+% fprintf(fileID,'taskset 0x08 ~/flying-ball/raspi-ballpos/posMeas.py -f %d -n %d -e %d -p', fps, num_frames, exposition_time);
+% 
+% if stream
+%     fprintf(fileID,' -s t');
+% % end
+% 
+%  &>/dev/null &
+% 
+% system(mypi,'~/flying-ball/raspi-ballpos/posMeas.py -f 50 -n 200 -e 5 -p &>/dev/null &')
+
+% fprintf(fileID,'\n');
+% fclose(fileID);
+%%
+% plink_path = fullfile(pathstr, 'plink.exe');
+% cert_path = fullfile(pathstr, 'key.ppk');
+% cmds_path = fullfile(pathstr, 'remoteCmds.txt');
+
+% system(sprintf('start /b %s -ssh pi@%s -i %s -m %s &', plink_path, ip_rpi, cert_path, cmds_path ))
 %%
 % Wait till the script starts
-pause(1)
+% pause(1)
 
 % delete('remoteCmds.txt')
 

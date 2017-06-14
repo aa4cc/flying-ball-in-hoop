@@ -15,7 +15,7 @@ plink_path = fullfile(pathstr, 'plink.exe');
 cert_path = fullfile(pathstr, 'key.ppk');
 cmds_path = fullfile(pathstr, 'remoteCmds.txt');
 
-system(sprintf('start /b %s -ssh pi@%s -i %s -m %s', plink_path, ip_rpi, cert_path, cmds_path ));
+system(sprintf('start /b %s -ssh pi@%s -i %s -m %s &', plink_path, ip_rpi, cert_path, cmds_path ));
 %%
 t = tcpip('0.0.0.0', 9898, 'NetworkRole', 'server', 'InputBufferSize', 480*480*3);
 fopen(t);

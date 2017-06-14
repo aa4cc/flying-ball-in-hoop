@@ -13,7 +13,8 @@ Dpsi_res = double(sign(psi_res)*abs(Dpsi_res));
 % inner hoop) minimizaing Dpsi when the ball enters the inner hoop mode
 
 % Cost function expressing Dpsi^2 + Dth_t2^2
-f = @(Dth_t1, Dth_t2) (Dth_t2 + prms.Ro/prms.Ri*(Dth_t1 - Dpsi_res) - (prms.Ro - prms.Rb)/(prms.Ri+prms.Rb)*cos(psi_res)*Dpsi_res).^2 + Dth_t2.^2;
+f = @(Dth_t1, Dth_t2) (Dth_t2 + prms.Ro/prms.Ri*(Dth_t1 - Dpsi_res) ...
+    - (prms.Ro - prms.Rb)/(prms.Ri+prms.Rb)*cos(psi_res)*Dpsi_res).^2 + Dth_t2.^2;
 options = optimoptions('fmincon','Display','iter','Algorithm','sqp');
 X = fminunc(@(x) f(x(1), x(2)), [0;0], options);
 Dth_t1 = X(1);
@@ -32,7 +33,8 @@ Dth_t2 = X(2);
 % Number of knot points
 N = 50;
 
-umax = 150;
+umax = 1;
+x0 = [0;0;0;0];
 xf_des = [0; Dth_t1; psi_res; Dpsi_res];
 
 xf_hardcon{1}.n = N;
@@ -49,12 +51,21 @@ lcon_neq.bneq = 0.9*pi/2*ones(N,1);
     'xf_hardcon', xf_hardcon, ...
     'grad', @costFun_u_grad, ...
     'lcon_neq', lcon_neq, ...
-    'nlcon_eq', @collocation_nonlncon_eq, ...
-    'nlcon_eq_jac', @collocation_nonlncon_eq_J, ...
-    'Tf_lim', [1.5 1.5]);
+    'nlcon_eq', @collocation_nonlncon_eq2, ...
+    'nlcon_eq_jac', @collocation_nonlncon_eq_J2, ...
+    'Tf_lim', [1.0 1.5]);
 Tf = N*Ts;
-    
+
+% Since the optimal trajevtory obtained by solution of the NLP problem have
+% shifted state trajecotry from the control trajectory (states x_k are from
+% k=1,...,N and controls u_k are from k=0,...N-1) augment these
+% trajectories so that they both star at k=0 and end at k=N
+t_star = [t_star'; t_star(end) + Ts];
+x_star = [x0'; x_star];
+u_star = [u_star; 0];
+
 traj = Traj(t_star, x_star, u_star, prms);
+    
 save(sprintf('optimTrajectories/getItUp_N%d_T%.1f_umax%d.mat', N, Tf, umax), 'traj', 'Ts', 'xf_des')
 %% Visualize the optimal trajectory
 visu(traj, 'slider', true)
@@ -65,7 +76,7 @@ Dth0 = 0;
 psi0 = 0;
 Dpsi0 = 0;
 
-DDth = timeseries([u_star;0;0], [t_star, Tf, Tf+1e2]);
+tau = timeseries([u_star;0;0], [t_star, Tf, Tf+1e2]);
 
 sim('../hybridModel/ballInaHoop_SF', [0 t_star(end)+1]);
 

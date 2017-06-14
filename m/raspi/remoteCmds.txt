@@ -1,0 +1,1 @@
+taskset 0x08 ~/flying-ball/raspi-ballpos/posMeas.py -f 50 -n 2250 -e 5 -p

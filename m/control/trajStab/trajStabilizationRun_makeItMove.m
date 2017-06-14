@@ -1,29 +1,31 @@
 clear all;
-addpath('../../')
-addpath('../../trajStabilization')
 params_init;
 
-load('makeItOscilate_N50_T0.9_umax100.mat')
+load('makeItOscilate_N50_T0.8_umax2.mat')
 load('calibData_hom.mat')
 
 [t, x, u] = traj.interp(prms.Ts);
-x = [0 0 0 0; x(:,1:4)];
-u = [u;u(end)];
-t = [t;t(end)+prms.Ts];
+x = x(:,1:4); % The state trajectory contains states [th, Dth, psi, Dpsi, r, Dr, phi, Dphi] but we need only [th, Dth, psi, Dpsi]
+
+% The trajectory contains also the final time with zero input. That is
+% something we do not need here
+t = t(1:end-1,:);
+x = x(1:end-1,:);
+u = u(1:end-1,:);
 %% Design a LQR stabilizying the trajectory
 Q = 1e2*diag([.1, 1, .5]);
 Qf = Q;
-R = 5e-1;
+R = .1;
 
-K = trajStabController_continous( t, x, prms.Ts, Q, Qf, R, prms );
+K = trajStabController( t, x, u, prms.Ts, Q, Qf, R, prms );
 K = squeeze(K);
 
 N = numel(t);
-k = 100;
+k = 40;
 t = 0:prms.Ts:(k*N-1)*prms.Ts;
-x = single(repmat(x, k, 1));
-u = single(repmat(u, k, 1));
-K = single(repmat(K, k, 1));
+x = repmat(x, k, 1);
+u = repmat(u, k, 1);
+K = repmat(K, k, 1);
 
 K_TS = timeseries(K, t);
 x_star_TS = timeseries(x(:,2:end), t);
@@ -35,5 +37,16 @@ Dth0 = 0;
 psi0 = 0;
 Dpsi0 = 0;
 
-P0 = single(eye(2));
-x0 = single([psi0; Dpsi0]);
+sim('simul/ballInaHoop_trajStab', [0 t(end)+1.5]);
+t_sim = simData.Time;
+x_sim = simData.Data(:,1:8);
+u_sim = simData.Data(:,9);
+
+visu(Traj(t_sim, x_sim, u_sim, prms), 'slider', 1)
+return;
+
+
+%%
+K_TS = timeseries(single(K), t);
+x_star_TS = timeseries(single(x(:,2:end)), t);
+u_star_TS = timeseries(single(u), t);

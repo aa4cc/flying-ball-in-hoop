@@ -1,23 +1,28 @@
 clear all;
 addpath('../../')
 addpath('../../utils')
+addpath('../../trajOptim')
 params_init;
 ctrl_analysis_up;
 
-load('getItUp_N75_T1.5_umax150.mat')
+load('getItUp_N50_T1.5_umax1.mat')
 load('calibData_hom.mat')
 
 [t, x, u] = traj.interp(prms.Ts);
+x = x(:,1:4); % The state trajectory contains states [th, Dth, psi, Dpsi, r, Dr, phi, Dphi] but we need only [th, Dth, psi, Dpsi]
 
-x = [0 0 0 0; x(:,1:4)];
-u = [u;u(end)];
-t = [t;t(end)+prms.Ts];
+% The trajectory contains also the final time with zero input. That is
+% something we do not need here
+t = t(1:end-1,:);
+x = x(1:end-1,:);
+u = u(1:end-1,:);
+
 %% Design a LQR stabilizying the trajectory
 Q = 1e3*diag([1, 2, .2]);
 Qf = 2*Q;
 R = .2e0;
 
-K = trajStabController_continous( t, x, prms.Ts, Q, Qf, R, prms );
+K = trajStabController( t, x, u, prms.Ts, Q, Qf, R, prms );
 K = squeeze(K);
 
 N = numel(u);

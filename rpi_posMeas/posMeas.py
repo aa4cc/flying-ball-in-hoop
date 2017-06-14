@@ -46,7 +46,7 @@ def findTheBall(image, denoise = True, kernel = None, iterations = 2):
     im_red = cv2.subtract(image[:,:,0], image[:,:,1], None)
     im_red = cv2.subtract(im_red, image[:,:,2], None)
 
-    im_thrs = cv2.inRange(im_red, 65,250)
+    im_thrs = cv2.inRange(im_red, 70,250)
     if denoise:
         # im_denoised = cv2.dilate(im_thrs, kernel, iterations)
         # im_denoised = cv2.erode(im_denoised, kernel, iterations)
@@ -298,11 +298,11 @@ def main(num_frames, frame_rate, exposition_time, verbose, stream, debug, ip_por
                 hooppos.predpos_write(img_size[0]+1, img_size[1]+1)
                         
             if params['debug']:
-                cv2.imwrite("img/im_thrs_init.png", im_thrs)
+                cv2.imwrite("/home/pi/flying-ball/rpi_posMeas/img/im_thrs_init.png", im_thrs)
 
                 if center is not None:
                     cv2.circle(image, center, 5, (0, 0, 255), -1)
-                cv2.imwrite("img/im_roi_init.png", image)
+                cv2.imwrite("/home/pi/flying-ball/rpi_posMeas/img/im_roi_init.png", image)
 
 
             fps = FPS().start()

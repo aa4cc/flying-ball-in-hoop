@@ -58,7 +58,7 @@ if ~isempty(p.Results.xf_hardcon)
     optiproblem = optiprob(optiproblem, 'eq', Aeq, beq);
 end
 
-f = @(x, u) ballInAHoopODEFUN(x, u, prms);
+f = @(x, u) ballInAHoopODEFUN(0, x, prms, u);
 
 if p.Results.umax ~= Inf
     ul = eye(5*N+1); ul = ul(5:5:end,:);
@@ -78,14 +78,14 @@ optiproblem = optiprob(optiproblem, 'ineq', Aneq, bneq);
 %%% Constraints
 % Nonlinear - equality
 if ~isempty(p.Results.nlcon_eq)
-    nlcon_eq = @(z) collocation_nonlncon_eq( z, p.Results.x0, N, f );
+    nlcon_eq = @(z) p.Results.nlcon_eq( z, p.Results.x0, N, f );
     nlncon_eq_n = numel(nlcon_eq(p.Results.opt_initVal));
     nlrhs_eq = zeros(nlncon_eq_n,1);
     nle_eq = zeros(nlncon_eq_n,1);
 
     if ~isempty(p.Results.nlcon_eq_jac)
         % Jacobians
-        jac1 = collocation_nonlncon_eq_J( p.Results.x0, N, @(x, u) ballInAHoopODEFUN_forGrad(x, u, prms), prms );
+        jac1 = p.Results.nlcon_eq_jac( p.Results.x0, N, @(x, u) ballInAHoopODEFUN(0, x, prms, u), prms );
     else
         jac1 = @(z) [];
     end

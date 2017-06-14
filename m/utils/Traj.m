@@ -41,7 +41,7 @@ classdef Traj
         function [t, x, u] = interp(obj, Ts)
             t = (0:Ts:obj.t_raw(end))';
             u = interp1(obj.t_raw, obj.u_raw, t);
-            x = zeros(numel(t), 4);
+            x = zeros(numel(t), 8);
             for i=1:8
                 x(:,i) = interp1(obj.t_raw, obj.x_raw(:,i), t);
             end

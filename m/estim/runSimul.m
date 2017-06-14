@@ -1,0 +1,2 @@
+addpath('..')
+params_init;

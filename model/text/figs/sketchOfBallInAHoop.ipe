@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE ipe SYSTEM "ipe.dtd">
+<ipe version="70206" creator="Ipe 7.2.7">
+<info created="D:20150907200539" modified="D:20170527110713"/>
+<ipestyle>
+<opacity name="10%" value="0.1"/>
+<opacity name="20%" value="0.2"/>
+<opacity name="30%" value="0.3"/>
+<opacity name="40%" value="0.4"/>
+<opacity name="50%" value="0.5"/>
+<opacity name="60%" value="0.6"/>
+<opacity name="70%" value="0.7"/>
+<opacity name="80%" value="0.8"/>
+<opacity name="90%" value="0.9"/>
+<layout paper="744 1052" origin="0 0" frame="744 1052" crop="no"/>
+<pathstyle cap="0" join="0" fillrule="wind"/>
+</ipestyle>
+<ipestyle>
+</ipestyle>
+<page>
+<layer name="alpha"/>
+<view layers="alpha" active="alpha"/>
+<path layer="alpha" stroke="0">
+192 0 0 192 384 768 e
+</path>
+<path stroke="black">
+592 768 m
+176 768 l
+</path>
+<path stroke="black">
+384 768 m
+592 704 l
+592 704 l
+</path>
+<path stroke="black">
+33.6081 0 0 33.6081 496 656 e
+</path>
+<path stroke="black">
+384 768 m
+544 608 l
+</path>
+<path stroke="black" arrow="normal/normal">
+384 768 m
+512 912 l
+</path>
+<path matrix="1 0 0 1 -256 -144" stroke="black" arrow="normal/normal">
+640 912 m
+672 912 l
+</path>
+<path matrix="1 0 0 1 -256 -144" stroke="black" arrow="normal/normal">
+640 912 m
+640 880 l
+</path>
+<text matrix="1.97612 0 0 1.97612 -905.423 -1023.73" pos="664.272 900.017" stroke="black" type="label" width="5.242" height="4.297" depth="1.93" valign="baseline" style="math">y</text>
+<text matrix="1.97612 0 0 1.97612 -891.791 -1005.55" pos="647.797 883.308" stroke="black" type="label" width="5.694" height="4.289" depth="0" valign="baseline" style="math">x</text>
+<text matrix="1.97612 0 0 1.97612 -413.139 -825.109" pos="428.941 851.381" stroke="black" type="label" width="12.034" height="6.812" depth="1.49" valign="baseline" style="math">R_\mathrm{o}</text>
+<path stroke="black" arrow="normal/normal">
+528 688 m
+45.2548 0 0 45.2548 496 656 481.689 698.933 a
+</path>
+<path stroke="black" arrow="normal/normal">
+495.922 656.078 m
+464 624 l
+</path>
+<path stroke="black" arrow="normal/normal">
+495.839 656.161 m
+496.141 689.608 l
+</path>
+<text matrix="1.97612 0 0 1.97612 -333.675 -847.627" pos="400 720" stroke="black" type="label" width="6.847" height="6.926" depth="1.93" valign="baseline" style="math">\psi</text>
+<text matrix="1.97612 0 0 1.97612 -328.02 -804.373" pos="432 704" stroke="black" type="label" width="4.954" height="6.918" depth="0" valign="baseline" style="math">\theta</text>
+<text matrix="1.97612 0 0 1.97612 -535.025 -684.071" pos="528 704" stroke="black" type="label" width="6.517" height="4.297" depth="1.93" valign="baseline" style="math">\varphi</text>
+<text matrix="1.97612 0 0 1.97612 -494.212 -655.788" pos="502.129 667.347" stroke="black" type="label" width="12.463" height="6.812" depth="1.49" valign="baseline" style="math">R_\mathrm{b}</text>
+<text matrix="1.97612 0 0 1.97612 -469.977 -631.317" pos="473.491 647.063" stroke="black" type="label" width="8.441" height="4.294" depth="1.49" valign="baseline" style="math">v_\mathrm{t}</text>
+<text matrix="1.75102 0 0 1.75102 -291.358 -89.7243" pos="512 576" stroke="black" type="label" width="5.109" height="4.297" depth="1.93" valign="baseline" style="math">g</text>
+<path stroke="black">
+57.211 0 0 57.211 384 768 e
+</path>
+<path stroke="black" arrow="normal/normal">
+384 768 m
+333.541 794.963 l
+</path>
+<text matrix="2.01943 0 0 2.01943 -365.886 -803.094" pos="354.559 789.278" stroke="black" type="label" width="10.318" height="6.812" depth="1.49" valign="baseline" style="math">R_\mathrm{i}</text>
+<path stroke="black" arrow="normal/normal">
+384 768 m
+496 656 l
+</path>
+<text matrix="2.0248 0 0 2.0248 -467.402 -720.081" pos="456.352 701.562" stroke="black" type="label" width="4.771" height="4.289" depth="0" valign="baseline" style="math">r</text>
+<path stroke="black">
+384 768 m
+640.774 689.185 l
+</path>
+<path stroke="black">
+384 528 m
+384 768 l
+384 768 l
+</path>
+<path stroke="black" arrow="normal/normal">
+384 551.762 m
+216.238 0 0 216.238 384 768 536.904 615.096 a
+</path>
+<path stroke="black" arrow="normal/normal">
+384 530.924 m
+237.076 0 0 237.076 384 768 610.64 698.434 a
+</path>
+<path matrix="1 0 0 1 16 0" stroke="black" arrow="normal/normal">
+576 944 m
+576 896 l
+</path>
+<path stroke="black" arrow="normal/normal">
+560 896 m
+217.624 0 0 217.624 384 768 512 944 a
+</path>
+<text matrix="2.86281 0 0 2.86281 -1011.94 -1732.33" pos="544 928" stroke="black" type="label" width="5.483" height="4.289" depth="0" valign="baseline" style="math">\tau</text>
+</page>
+</ipe>
