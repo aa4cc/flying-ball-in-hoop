@@ -1,0 +1,3 @@
+[submodule "raspi-ballpos"]
+	path = raspi-ballpos
+	url = https://github.com/aa4cc/raspi-ballpos
