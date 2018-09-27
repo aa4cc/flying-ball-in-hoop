@@ -8,14 +8,14 @@ Hoop and ball model is, as the name suggests, a model consisting of a ball and h
 
 Our improved version of *Ball and Hoop* model is shown in the figure below. In addition to the classical task of damping oscillatins, it also allows some more challenging taks like, for instance, *Loop The Loop* task. For more details see our paper describing two such tasks in detail [1].
 
-![A picture of our ball and hoop system](desc.png)
+![A picture of our ball and hoop system](img/desc.png)
 
 # Description of The Model
 A schematic description of the hardware setup of the model is shown in the figure bellow.
 
 The brain of the whole hardware setup is *Raspberry Pi 3* which has enough computational power to run a control algorithm and also to measure position of the ball by processing of images from a camera. Raspberry Pi is powered by 5 V which are obtained by a power supply converting alternating 230 V to direct 5 V. It also communicates with a custom-made BLDC regulator via UART and switches off and on a LED lamp illuminating the ball with the hoop. The BLDC regulator allows the control system running on Raspberry Pi to command torque acting on the hoop.
 
-![A schematic description of the model](scheme.png)
+![A schematic description of the model](img/scheme.png)
 
 ## Camera
 We used a Raspberry Pi Camera module v1. We chose this particular camera because it is cheap, it has high frame rate (up to 90 fps for VGA resolution) and in comparison to the newer Camera Module v2 it doesn't crop the images for VGA resolution to quarter of the image sensor size.
