@@ -33,5 +33,31 @@ We use metal balls of size ranging from 20 mm to 24 mm in diameter. In order to 
 ## Lamp
 We bought a LED EMOS klasik 12W, which is a LED light bulb, dismantled it and mounted the board with the LEDs to a custom-made heatsink (the CAD files of the heatsink can be found in *cad/lampHeatSink/*). The lamp can be switched off and on by a relay controlled by the Raspberry Pi.
 
+# Install procedure
+1) go the the home directory and clone the repository by
+'''
+cd /home/pi/
+git clone https://github.com/aa4cc/flying-ball-in-hoop.git
+'''
+
+## Shutdown button service
+1) copy the service checking whether the shutdown button is pressed to the system directory with other services
+'''
+sudo cp ~/flying-ball-in-hoop/scripts/pi_shutdown.service /lib/systemd/system/
+''' 
+1) Enable the service to automatically start when raspberry pi boots
+'''
+sudo systemctl enable pi_shutdown.service
+'''
+1) Run the service so you don not have to reboot the raspberry pi
+'''
+sudo systemctl start pi_shutdown.service
+'''
+1) Now you can check the status of the service by running
+'''
+sudo systemctl status pi_shutdown.service
+'''
+
+
 # References
 [1] M. Gurtner and J. Zemanek, "Ball in double hoop: demonstration model for numerical optimal control". *To appear*. 
