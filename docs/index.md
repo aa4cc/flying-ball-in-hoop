@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Double Hoop and Ball
+title: Flying Ball In Hoop
 <!-- subtitle:  -->
 ---
 
