@@ -35,28 +35,29 @@ We bought a LED EMOS klasik 12W, which is a LED light bulb, dismantled it and mo
 
 # Install procedure
 1) go the the home directory and clone the repository by
-'''
+```
 cd /home/pi/
 git clone https://github.com/aa4cc/flying-ball-in-hoop.git
-'''
+```
 
 ## Shutdown button service
-1) copy the service checking whether the shutdown button is pressed to the system directory with other services
-'''
+Copy the service checking whether the shutdown button is pressed to the system directory with other services
+```
 sudo cp ~/flying-ball-in-hoop/scripts/pi_shutdown.service /lib/systemd/system/
-''' 
-1) Enable the service to automatically start when raspberry pi boots
-'''
+``` 
+
+Enable the service to automatically start when raspberry pi boots
+```
 sudo systemctl enable pi_shutdown.service
-'''
-1) Run the service so you don not have to reboot the raspberry pi
-'''
+```
+Run the service so you don not have to reboot the raspberry pi
+```
 sudo systemctl start pi_shutdown.service
-'''
-1) Now you can check the status of the service by running
-'''
+```
+Now you can check the status of the service by running
+```
 sudo systemctl status pi_shutdown.service
-'''
+```
 
 
 # References
