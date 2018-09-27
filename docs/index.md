@@ -1,7 +1,7 @@
 ---
 ---
 
-# Double Hoop and Ball
+<!-- # Double Hoop and Ball -->
 Hoop and ball model is, as the name suggests, a model consisting of a ball and hoop. The ball can freely rotate in the hoop and the hoop is attached to a motor which allows us to exert a torque on the hoop. This model is used for demonstration and teaching of linear control theory where the goal is to damp the undesired oscillations of the ball. In other words, the goal is to calculate a torque acting against the oscillations based on the measured position of the ball.
 
 Our improved version of *Ball and Hoop* model is shown in the figure below. In addition to the classical task of damping oscillatins, it also allows some more challenging taks like, for instance, *Loop The Loop* task. For more details see our paper describing two such tasks in detail [1].

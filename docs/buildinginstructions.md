@@ -3,10 +3,10 @@ layout: page
 title: Building Instructions
 subtitle: How to build your own Ball in Hoop laboratory model
 ---
-
+<!-- 
 # Ball in Hoop 
 
-## Introduction
+## Introduction -->
 
 Our motivation for developing the Ball In Hoop model was to demonstrate non-trivial, complex control algorithms on a simple, easy-to-make and compact model. As the name suggests, the model consists of the ball and the hoop. The ball can freely rotate in the hoop and the hoop is attached to a motor which allows us to exert a torque on the hoop. The goal is to damp the undesired oscillations of the ball. In other words, the goal is to calculate a torque acting against the oscillations based on the measured position of the ball.
 
