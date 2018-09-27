@@ -61,4 +61,4 @@ sudo systemctl status pi_shutdown.service
 
 
 # References
-[1] M. Gurtner and J. Zemanek, "Ball in double hoop: demonstration model for numerical optimal control". *To appear*. 
+[1] M. Gurtner and J. Zemánek, “Ball in double hoop: demonstration model for numerical optimal control *,” IFAC-PapersOnLine, vol. 50, no. 1, pp. 2379–2384, Jul. 2017.
