@@ -67,7 +67,7 @@ author:
 # You can reorder the items to define the link order.
 # If you want to add a new link that isn't here, you'll need to also edit the file _data/SocialNetworks.yml
 social-network-links:
-  rss: false
+  # rss: false
   email: "martin.gurtner@gmail.com"
   # facebook: daattali
   github: aa4cc
@@ -172,13 +172,10 @@ link-tags: true
 
 # Exclude these files from production site
 exclude:
-  - CHANGELOG.md
   - CNAME
   - Dockerfile
   - Gemfile
   - Gemfile.lock
-  - LICENSE
-  - README.md
   - Vagrantfile
 
 # prose.io config
@@ -187,8 +184,6 @@ prose:
   media: 'img'
   ignore:
     - 404.html
-    - LICENSE
-    - feed.xml
     - _config.yml
     - /_layouts
     - /_includes
