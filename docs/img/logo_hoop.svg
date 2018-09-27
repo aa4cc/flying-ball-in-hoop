@@ -15,7 +15,10 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="logo_hoop.svg">
+   sodipodi:docname="logo_hoop.svg"
+   inkscape:export-filename="E:\Dropbox\projects\flying-ball_aa4cc_git\docs\img\logo_hoop.png"
+   inkscape:export-xdpi="240.55"
+   inkscape:export-ydpi="240.55">
   <defs
      id="defs2">
     <g
@@ -495,7 +498,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="729.58035"
+     inkscape:cx="601.00892"
      inkscape:cy="502.88945"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -513,7 +516,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -530,7 +533,7 @@
        y="132.93985" />
     <g
        id="g4839"
-       transform="matrix(9.9769421,0,0,9.9769421,-1521.3319,-1677.3467)">
+       transform="matrix(8.8781832,0,0,8.8781832,-1338.0962,-1475.0033)">
       <path
          id="path4205-9"
          d="m 167.16754,186.06653 c 0,-0.22556 -0.18284,-0.4084 -0.40839,-0.4084 -0.22557,0 -0.40841,0.18284 -0.40841,0.4084 0,0.22556 0.18284,0.40839 0.40841,0.40839 0.22555,0 0.40839,-0.18283 0.40839,-0.40839"
