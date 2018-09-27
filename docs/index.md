@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Flying Ball In Hoop
-<!-- subtitle:  -->
+<!-- subtitle:  DOPLNIT -->
 ---
 
 Hoop and ball model is, as the name suggests, a model consisting of a ball and hoop. The ball can freely rotate in the hoop and the hoop is attached to a motor which allows us to exert a torque on the hoop. This model is used for demonstration and teaching of linear control theory where the goal is to damp the undesired oscillations of the ball. In other words, the goal is to calculate a torque acting against the oscillations based on the measured position of the ball.
