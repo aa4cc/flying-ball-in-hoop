@@ -3,8 +3,8 @@ layout: page
 title: Building Instructions
 subtitle: How to build your own Ball in Hoop laboratory model
 ---
-<!-- 
-# Ball in Hoop 
+<!--
+# Ball in Hoop
 
 ## Introduction -->
 
@@ -18,7 +18,7 @@ For exploring our previous version of the model and its capabilities please chec
 
 ## Design
 
-You can see the arrangement of the model in the following picture.An acrylic board bears an electronics box and a motor holder. Concerning the hoop holder, there are ODrive Driver, ODrive Motor (bearing the hoop) and matching encoder attached to it. The electronics box includes Raspberry Pi 3b+, a step-down converter (from 48VDC to 5VDC), a smaller box for balls and a light module holder (which bears the Raspberry Pi Camera V1). 
+You can see the arrangement of the model in the following picture.An acrylic board bears an electronics box and a motor holder. Concerning the hoop holder, there are ODrive Driver, ODrive Motor (bearing the hoop) and matching encoder attached to it. The electronics box includes Raspberry Pi 3b+, a step-down converter (from 48VDC to 5VDC), a smaller box for balls and a light module holder (which bears the Raspberry Pi Camera V1).
 
 ### Acrylic board
 
@@ -67,9 +67,11 @@ The electronics box is made of 5mm thick plywood. Dimensions: 23x11x4 centimeter
 
 Taking from left to right, there is a 15mm switch hole, beneath this switch hole is a 4.9mm hole for indication led, then there is an 8mm hole for input voltage, a 15mm hole for a DIN connector (it provides access to Raspberry Pi pins), a 16mm hole for a Raspberry Pi shutdown button and lastly a second hole for an indication LED.
 
-#### Components 
+#### Components
 
 - ON/OFF switch, panel mount
 - DC power connector, jack, 2.1mm x 5.5mm, panel mount
 - DIN 5 female connector, panel mount, 180°
 - button, panel mount
+
+# Něco
