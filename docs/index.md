@@ -3,67 +3,75 @@ layout: page
 title: Flying Ball In Hoop
 <!-- subtitle:  DOPLNIT -->
 ---
+# Introduction
 
-Hoop and ball model is, as the name suggests, a model consisting of a ball and hoop. The ball can freely rotate in the hoop and the hoop is attached to a motor which allows us to exert a torque on the hoop. This model is used for demonstration and teaching of linear control theory where the goal is to damp the undesired oscillations of the ball. In other words, the goal is to calculate a torque acting against the oscillations based on the measured position of the ball.
+Our motivation for developing the Ball In Hoop model was to demonstrate non-trivial, complex control algorithms on a simple, easy-to-make and compact model. As the name suggests, the model consists of the ball and the hoop. The ball can freely rotate in the hoop and the hoop is attached to a motor which allows us to exert a torque on the hoop. The goal is to damp the undesired oscillations of the ball. In other words, the goal is to calculate a torque acting against the oscillations based on the measured position of the ball.
 
-Our improved version of *Ball and Hoop* model is shown in the figure below. In addition to the classical task of damping oscillatins, it also allows some more challenging taks like, for instance, *Loop The Loop* task. For more details see our paper describing two such tasks in detail [1].
+This repository should help you to make this model on your own. It provides a step-by-step guide. Please bear in mind that the whole project is still in development. That means there is always a plenty of possible improvements and even we ourselves made several changes and deflected slightly from the guide written below.
 
-![A picture of our ball and hoop system](img/desc.png)
+The theoretical background of the model is explained in following paper: <https://goo.gl/vkwKiH>
 
-# Description of The Model
-A schematic description of the hardware setup of the model is shown in the figure bellow.
+To explore our previous version of the model and its capabilities please check these videos:
+<https://www.youtube.com/watch?v=484GN4KBQnc>
+<https://www.youtube.com/watch?v=8FaNk6C2ckM>
 
-The brain of the whole hardware setup is *Raspberry Pi 3* which has enough computational power to run a control algorithm and also to measure position of the ball by processing of images from a camera. Raspberry Pi is powered by 5 V which are obtained by a power supply converting alternating 230 V to direct 5 V. It also communicates with a custom-made BLDC regulator via UART and switches off and on a LED lamp illuminating the ball with the hoop. The BLDC regulator allows the control system running on Raspberry Pi to command torque acting on the hoop.
+# Design
 
-![A schematic description of the model](img/scheme.png)
+You can see the arrangement of the model in the following picture:
 
-## Camera
-We used a Raspberry Pi Camera module v1. We chose this particular camera because it is cheap, it has high frame rate (up to 90 fps for VGA resolution) and in comparison to the newer Camera Module v2 it doesn't crop the images for VGA resolution to quarter of the image sensor size.
+(img/Model2)
 
-## BLDC regulator
-We developed our own BLDC regulator which allows us to command torque acting on the hoop. The regulator is based on a regulator designed by Ben Katz during his bachelor's project at MIT titled "Low Cost, High Performance Actuators for Dynamic Robots". Details can be found at his blog http://build-its-inprogress.blogspot.cz. The code of the regulator was developed at mbed.org and is freely available at *https://developer.mbed.org/users/MartinGurtner/code/Flying-Ball_BLDC_Ctrl/. The scheme and board design can be found in *bldc_controller*.
+An acrylic board bears an electronics box and a motor holder. Concerning the hoop holder, there are ODrive Driver, ODrive Motor (bearing the hoop) and matching encoder attached to it. The electronics box includes Raspberry Pi 3b+, a step-down converter (from 48VDC to 5VDC), a smaller box for balls and a light module holder (which bears the Raspberry Pi Camera V1).
 
-## BLDC motor
-We used BLDC motor GBM6208-150T because it is a motor meant for gimbals and has mounting halls for a magnetic rotation sensor.
+## Acrylic board
 
-## Power Supplies
-We needed two power supplies, one 5 V power supply for Raspberry Pi 3 and one approximately 30 V power supply for the BLDC regulator and motor. We bought both of them on ebay where one can get some really cheap (several bucks at max) power supplies converting AC 230 V to various fixed DC voltages. 
+It actually consists of two acrylics (dimensions: 450x230x5mm). They stand on four small rubber legs. There are eight holes in the board - seven mounting holes and one hole for cables. The displacement of the holes can be seen here: <https://a360.co/2OJNwOs○>
+
+## Box
+
+The electronics box is made of 5mm thick plywood (later, we made the top part of acrylic). Dimensions: 230x110x40mm. We designed the box in Fusion 360 and used the sketches to cut the sides of the box in laser cutter. In this box there is an inner box for balls, 85x60mm. You may examine the 3D model here: <https://a360.co/2OJnGtP>
+
+### Front side
+
+Taking from left to right, there is a 15mm switch hole, beneath this switch hole is a 4.9mm hole for indication led, then there is an 8mm hole for input voltage, a 15mm hole for a DIN connector (it provides access to Raspberry Pi pins), a 16mm hole for a Raspberry Pi shutdown button and lastly a second hole for an indication LED. On the inner side of the front side, there is a 11mm hole partly engraved around the 8mm voltage connector in order to better fit in the connector.
+
+![BoxFront1](img/BoxFront1.jpg)
+
+![BoxFront2](img/BoxFront2.jpg)
+
+### Left and rear side
+
+Because we need access to RaspberryPi connectors, we made holes in the left and  the rear side and cut out rectangles to fit in them tightly.
+
+![BoxBack](img/BoxBack.jpg)
+
+![BoxLeft](img/BoxLeft.jpg)
+
+### Components
+
+- ON/OFF switch, panel mount
+- DC power connector, jack, 2.1mm x 5.5mm, panel mount
+- DIN 5 female connector, panel mount, 180°
+- button, panel mount
+
+## Light
+
+The whole concept of a model light differs completely from the previous version of the model (*version 1*). Previously, we dismantled a LED bulb and used its components to make the model light. Now, we decided to make the light on our own. Thus, we have made a schematic and a PCB in Autodesk Eagle PCB designer.
+
+Please visit <https://github.com/aa4cc/raspicam-lamp>
+
+## Motor holder
+
+The motor holder is mounted to the acrylic through three holes (5mm diameter).
+
+Furthermore, there are holes for ODrive, encoder, motor and also a hole which allows a motor axis go through the holder.
+
+Here you can see the 3D model of the holder: <https://a360.co/2QvQi7p>
 
 ## Hoop
-The hoop consists of three parts which are 3D printed by Ultimaker 2+. The parts are glued screwed together. Along inserted rubber o-rings along the circumference where the ball is in contact with the hoop in order to increase friction and thus prevent slippage of the ball. CAD files of the hoop can be found in *cad/hoop/*.
 
-## Ball
-We use metal balls of size ranging from 20 mm to 24 mm in diameter. In order to facilitate identification of the balls in the images, all balls are painted to a red color.
+The outer diameter of the hoop is 225mm and the thickness is 30mm. The hoop is designed so that you can fit two rubber O-rings inside.
 
-## Lamp
-We bought a LED EMOS klasik 12W, which is a LED light bulb, dismantled it and mounted the board with the LEDs to a custom-made heatsink (the CAD files of the heatsink can be found in *cad/lampHeatSink/*). The lamp can be switched off and on by a relay controlled by the Raspberry Pi.
+## Electronics
 
-# Install procedure
-1) go the the home directory and clone the repository by
-```
-cd /home/pi/
-git clone https://github.com/aa4cc/flying-ball-in-hoop.git
-```
-
-## Shutdown button service
-Copy the service checking whether the shutdown button is pressed to the system directory with other services
-```
-sudo cp ~/flying-ball-in-hoop/scripts/pi_shutdown.service /lib/systemd/system/
-``` 
-
-Enable the service to automatically start when raspberry pi boots
-```
-sudo systemctl enable pi_shutdown.service
-```
-Run the service so you don not have to reboot the raspberry pi
-```
-sudo systemctl start pi_shutdown.service
-```
-Now you can check the status of the service by running
-```
-sudo systemctl status pi_shutdown.service
-```
-
-
-# References
-[1] M. Gurtner and J. Zemánek, “Ball in double hoop: demonstration model for numerical optimal control *,” IFAC-PapersOnLine, vol. 50, no. 1, pp. 2379–2384, Jul. 2017.
+![ElScheme](img/scheme2.png)
