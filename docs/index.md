@@ -12,7 +12,9 @@ This repository should help you to make this model on your own. It provides a st
 The theoretical background of the model is explained in following paper: <https://goo.gl/vkwKiH>
 
 To explore our previous version of the model and its capabilities please check these videos:
+
 <https://www.youtube.com/watch?v=484GN4KBQnc>
+
 <https://www.youtube.com/watch?v=8FaNk6C2ckM>
 
 # Design
@@ -25,11 +27,15 @@ An acrylic board bears an electronics box and a motor holder. Concerning the hoo
 
 ## Acrylic board
 
-It actually consists of two acrylics (dimensions: 450x230x5mm). They stand on four small rubber legs. There are eight holes in the board - seven mounting holes and one hole for cables. The displacement of the holes can be seen here: <https://a360.co/2OJNwOs○>
+It actually consists of two acrylics (dimensions: 450x230x5mm). They stand on four small rubber legs. There are eight holes in the board - seven mounting holes and one hole for cables. The displacement of the holes can be seen here:
+
+<https://a360.co/2OJNwOs○>
 
 ## Box
 
-The electronics box is made of 5mm thick plywood (later, we made the top part of acrylic). Dimensions: 230x110x40mm. We designed the box in Fusion 360 and used the sketches to cut the sides of the box in laser cutter. In this box there is an inner box for balls, 85x60mm. You may examine the 3D model here: <https://a360.co/2OJnGtP>
+The electronics box is made of 5mm thick plywood (later, we made the top part of acrylic). Dimensions: 230x110x40mm. We designed the box in Fusion 360 and used the sketches to cut the sides of the box in laser cutter. In this box there is an inner box for balls, 85x60mm. You may examine the 3D model here:
+
+<https://a360.co/2OJnGtP>
 
 ### Front side
 
@@ -58,7 +64,7 @@ Because we need access to RaspberryPi connectors, we made holes in the left and 
 
 The whole concept of a model light differs completely from the previous version of the model (*version 1*). Previously, we dismantled a LED bulb and used its components to make the model light. Now, we decided to make the light on our own. Thus, we have made a schematic and a PCB in Autodesk Eagle PCB designer.
 
-Please visit <https://github.com/aa4cc/raspicam-lamp>
+Please visit <https://github.com/aa4cc/raspicam-lamp>.
 
 ## Motor holder
 
@@ -66,7 +72,9 @@ The motor holder is mounted to the acrylic through three holes (5mm diameter).
 
 Furthermore, there are holes for ODrive, encoder, motor and also a hole which allows a motor axis go through the holder.
 
-Here you can see the 3D model of the holder: <https://a360.co/2QvQi7p>
+Here you can see the 3D model of the holder:
+
+<https://a360.co/2QvQi7p>
 
 ## Hoop
 
