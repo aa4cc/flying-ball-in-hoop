@@ -9,7 +9,9 @@ Our motivation for developing the Ball In Hoop model was to demonstrate non-triv
 
 This repository should help you to make this model on your own. It provides a step-by-step guide. Please bear in mind that the whole project is still in development. That means there is always a plenty of possible improvements and even we ourselves made several changes and deflected slightly from the guide written below.
 
-The theoretical background of the model is explained in following paper: <https://goo.gl/vkwKiH>
+The theoretical background of the model is explained in following paper:
+
+<https://goo.gl/vkwKiH>
 
 To explore our previous version of the model and its capabilities please check these videos:
 

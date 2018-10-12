@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Hardware assembly
-subtitle: How to build your own Ball in Hoop laboratory model
+subtitle: A step-by-step photoguide
 ---
 <!--
 # Ball in Hoop
@@ -87,3 +87,13 @@ We put the connectors into the front side of the box, solder the wires to them a
 ![WiringWago](img/WiringWago.jpg)
 
 (Wiring picture to be added)
+
+# Future development
+
+1. To lessen the RasPi PWM signal from 3.3V to 1.25V directly on the light module.
+
+2. To make the camera mounting holes tighter and to cut a screw thread in them so that no nuts were needed.
+
+3. To redesign the power and PWM connectors on the light module in a smarter way.
+
+4. To use a motor with a shorter shaft which would not overhang into the hoop.
