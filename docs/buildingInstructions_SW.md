@@ -46,15 +46,15 @@ This guide vaguely follows a guide written [here](https://www.pyimagesearch.com/
 
 4. Update packages:
     ```
-	sudo apt-get update
+    sudo apt-get update
     ```
 5. Upgrade packages:
     ```
- 	sudo apt-get upgrade
+    sudo apt-get upgrade
     ```
 6. Install CMake:
     ```
- 	sudo apt-get install build-essential cmake pkg-config
+    sudo apt-get install build-essential cmake pkg-config
     ```
 7. Get image file formats support:
     ```
