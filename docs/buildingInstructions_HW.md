@@ -46,8 +46,6 @@ We put the not-engraved acrylic on the engraved one, place the box on the top an
 
 # 4. Motor holder
 
-(tady bude timelapse)
-
 ![HolderMotor](img/HolderMotor.jpg)
 
 ![HolderMotorScrews](img/HolderMotorScrews.jpg)
