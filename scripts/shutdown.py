@@ -28,5 +28,6 @@ while True:
         # Switch off the power LED
         GPIO.output(led, 0)
         oldButtonState1 = buttonState1
+        break
 
     time.sleep(.5)
