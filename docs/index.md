@@ -5,9 +5,7 @@ subtitle:  Laboratory model for numerical optimal control
 ---
 # Introduction
 
-Our motivation for developing the Ball In Hoop model was to demonstrate non-trivial, complex control algorithms on a simple, easy-to-make and compact model. As the name suggests, the model consists of the ball and the hoop. The ball can freely rotate in the hoop and the hoop is attached to a motor which allows us to exert a torque on the hoop. Similar models are used for teaching linear control theory in which case the goal is to damp the undesired oscillations of the ball. In other words, the goal is to calculate a torque acting against the oscillations based on the measured position of the ball.
-
-Our improved version of Ball and Hoop model is shown in the figure below. In addition to the classical task of damping oscillatins, it also allows some more challenging taks like, for instance, Loop The Loop task. For more details see our paper [1] describing two such tasks in detail 
+A Ball In Hoop is a commonly used educational model which serves for control theory teaching. As the name suggests, the model consists of the ball and the hoop. The traditional configuration expects the ball to be controlled within a small area around the system's operating point, the ball being sometimes even mechanically prevented from rolling out of this region. Desiring to dive into more complex control algorithms, we abandoned the forementioned traditional view and set several new challenging tasks ahead of us, for example to 'loop the hoop' or to throw the ball into an inner horseshoe. The ball can freely rotate in the hoop and the hoop is attached to a motor which allows us to exert a torque on the hoop. Whatever the task we do, our aim is to damp the undesired oscillations of the ball. In other words, the goal is to calculate a torque acting against the oscillations based on the measured position of the ball. For more details see our paper [1].
 
 This repository should help you to make this model on your own. It provides a step-by-step guide. Please bear in mind that the whole project is still in development. That means there is always a plenty of possible improvements and even we ourselves made several changes and deflected slightly from the guide written below.
 
@@ -25,7 +23,11 @@ You can see the arrangement of the model in the following picture:
 
 (img/Model2)
 
-An acrylic board bears an electronics box and a motor holder. Concerning the hoop holder, there are ODrive Driver, ODrive Motor (bearing the hoop) and matching encoder attached to it. The electronics box includes Raspberry Pi 3b+, a step-down converter (from 48VDC to 5VDC), a smaller box for balls and a light module holder (which bears the Raspberry Pi Camera V1).
+An acrylic board bears an electronics box and a motor holder. Concerning the motor holder, there are ODrive Driver, ODrive Motor (bearing the hoop) and matching encoder attached to it. The electronics box includes Raspberry Pi 3b+, a step-down converter (from 48VDC to 5VDC), a smaller box for balls and a light module holder (which bears the Raspberry Pi Camera V1).
+
+![ElScheme](img/scheme2.png)
+
+Voltage comes through power connector which is (via a switch) wired to the light module, ODrive and step-down. The step-down is connected to the indication LED and also powers the Raspberry Pi which is connected to the light module, shutdown button, DIN5 connector, RasPi Camera, indication LED and ODrive. ODrive is connected (apart from power and Raspberry) to the motor, encoder and breaking resistor.
 
 ## Acrylic base board
 
@@ -64,8 +66,6 @@ Because we need access to RaspberryPi connectors, we made holes in the left and 
 
 ## Light
 
-The whole concept of a model light differs completely from the previous version of the model (*version 1*). Previously, we dismantled a LED bulb and used its components to make the model light. Now, we decided to make the light on our own. Thus, we have made a schematic and a PCB in Autodesk Eagle PCB designer.
-
 Please visit <https://github.com/aa4cc/raspicam-lamp>.
 
 ## Motor holder
@@ -81,10 +81,6 @@ Here you can see the 3D model of the holder:
 ## Hoop
 
 The outer diameter of the hoop is 225mm and the thickness is 30mm. The hoop is designed so that you can fit two rubber O-rings inside.
-
-## Electronics
-
-![ElScheme](img/scheme2.png)
 
 # References
 [1] M. Gurtner and J. Zemánek, “Ball in double hoop: demonstration model for numerical optimal control *,” IFAC-PapersOnLine, vol. 50, no. 1, pp. 2379–2384, Jul. 2017. Available at [arxiv.org](https://arxiv.org/abs/1706.07333)
