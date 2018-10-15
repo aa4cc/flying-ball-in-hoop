@@ -1,17 +1,17 @@
 ---
 layout: page
 title: Flying Ball In Hoop
-subtitle:  Laboratory model numerical optimal control
+subtitle:  Laboratory model for numerical optimal control
 ---
 # Introduction
 
-Our motivation for developing the Ball In Hoop model was to demonstrate non-trivial, complex control algorithms on a simple, easy-to-make and compact model. As the name suggests, the model consists of the ball and the hoop. The ball can freely rotate in the hoop and the hoop is attached to a motor which allows us to exert a torque on the hoop. The goal is to damp the undesired oscillations of the ball. In other words, the goal is to calculate a torque acting against the oscillations based on the measured position of the ball.
+Our motivation for developing the Ball In Hoop model was to demonstrate non-trivial, complex control algorithms on a simple, easy-to-make and compact model. As the name suggests, the model consists of the ball and the hoop. The ball can freely rotate in the hoop and the hoop is attached to a motor which allows us to exert a torque on the hoop. Similar models are used for teaching linear control theory in which case the goal is to damp the undesired oscillations of the ball. In other words, the goal is to calculate a torque acting against the oscillations based on the measured position of the ball.
+
+Our improved version of Ball and Hoop model is shown in the figure below. In addition to the classical task of damping oscillatins, it also allows some more challenging taks like, for instance, Loop The Loop task. For more details see our paper [1] describing two such tasks in detail 
 
 This repository should help you to make this model on your own. It provides a step-by-step guide. Please bear in mind that the whole project is still in development. That means there is always a plenty of possible improvements and even we ourselves made several changes and deflected slightly from the guide written below.
 
-The theoretical background of the model is explained in following paper:
-
-<https://goo.gl/vkwKiH>
+The theoretical background of the model is explained in following paper [1].
 
 To explore our previous version of the model and its capabilities please check these videos:
 
@@ -27,9 +27,9 @@ You can see the arrangement of the model in the following picture:
 
 An acrylic board bears an electronics box and a motor holder. Concerning the hoop holder, there are ODrive Driver, ODrive Motor (bearing the hoop) and matching encoder attached to it. The electronics box includes Raspberry Pi 3b+, a step-down converter (from 48VDC to 5VDC), a smaller box for balls and a light module holder (which bears the Raspberry Pi Camera V1).
 
-## Acrylic board
+## Acrylic base board
 
-It actually consists of two acrylics (dimensions: 450x230x5mm). They stand on four small rubber legs. There are eight holes in the board - seven mounting holes and one hole for cables. The displacement of the holes can be seen here:
+It actually consists of two acrylics (dimensions: 450x230x5mm). They stand on four small rubber legs. There are eight holes in the board - seven mounting holes and one hole for cables. You can find the 3D model of the base board here:
 
 <https://a360.co/2OJNwOs○>
 
@@ -85,3 +85,6 @@ The outer diameter of the hoop is 225mm and the thickness is 30mm. The hoop is d
 ## Electronics
 
 ![ElScheme](img/scheme2.png)
+
+# References
+[1] M. Gurtner and J. Zemánek, “Ball in double hoop: demonstration model for numerical optimal control *,” IFAC-PapersOnLine, vol. 50, no. 1, pp. 2379–2384, Jul. 2017. [arxiv.org](https://arxiv.org/abs/1706.07333)
