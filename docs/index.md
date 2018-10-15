@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Flying Ball In Hoop
-<!-- subtitle:  DOPLNIT -->
+subtitle:  Laboratory model numerical optimal control
 ---
 # Introduction
 
