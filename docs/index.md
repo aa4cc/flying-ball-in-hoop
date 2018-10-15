@@ -87,4 +87,4 @@ The outer diameter of the hoop is 225mm and the thickness is 30mm. The hoop is d
 ![ElScheme](img/scheme2.png)
 
 # References
-[1] M. Gurtner and J. Zemánek, “Ball in double hoop: demonstration model for numerical optimal control *,” IFAC-PapersOnLine, vol. 50, no. 1, pp. 2379–2384, Jul. 2017. [arxiv.org](https://arxiv.org/abs/1706.07333)
+[1] M. Gurtner and J. Zemánek, “Ball in double hoop: demonstration model for numerical optimal control *,” IFAC-PapersOnLine, vol. 50, no. 1, pp. 2379–2384, Jul. 2017. Available at [arxiv.org](https://arxiv.org/abs/1706.07333)
