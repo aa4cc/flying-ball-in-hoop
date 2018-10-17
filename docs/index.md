@@ -21,7 +21,7 @@ To explore our previous version of the model and its capabilities please check t
 
 You can see the arrangement of the model in the following picture:
 
-![Model2](img/Model2)
+![Model2](img/Model2.jpg)
 
 An acrylic board bears an electronics box and a motor holder. Concerning the motor holder, there are ODrive Driver, ODrive Motor (bearing the hoop) and matching encoder attached to it. The electronics box includes Raspberry Pi 3b+, a step-down converter (from 48VDC to 5VDC), a smaller box for balls and a light module holder (which bears the Raspberry Pi Camera V1).
 
