@@ -45,7 +45,7 @@ The electronics box is made of 5mm thick plywood (later, we made the top part of
 
 Taking from left to right, there is a 15mm switch hole, beneath this switch hole is a 4.9mm hole for indication led, then there is an 8mm hole for input voltage, a 15mm hole for a DIN connector (it provides access to Raspberry Pi pins), a 16mm hole for a Raspberry Pi shutdown button and lastly a second hole for an indication LED. On the inner side of the front side, there is a 11mm hole partly engraved around the 8mm voltage connector in order to better fit in the connector.
 
-![BoxFront1](img/BoxFront1.jpg)
+![BoxFront1](img/BoxFront3.jpg)
 
 ![BoxFront2](img/BoxFront2.jpg)
 
@@ -53,7 +53,7 @@ Taking from left to right, there is a 15mm switch hole, beneath this switch hole
 
 Because we need access to RaspberryPi connectors, we made holes in the left and  the rear side and cut out rectangles to fit in them tightly.
 
-![BoxBack](img/BoxBack.jpg)
+![BoxBack](img/BoxBack2.jpg)
 
 ![BoxLeft](img/BoxLeft.jpg)
 
