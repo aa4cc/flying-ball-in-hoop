@@ -5,17 +5,15 @@ subtitle:  Laboratory model for numerical optimal control
 ---
 # Introduction
 
-A Ball In Hoop is a commonly used educational model which serves for control theory teaching. As the name suggests, the model consists of the ball and the hoop. The traditional configuration expects the ball to be controlled within a small area around the system's operating point, the ball being sometimes even mechanically prevented from rolling out of this region. Desiring to dive into more complex control algorithms, we abandoned the forementioned traditional view and set several new challenging tasks ahead of us, for example to 'loop the hoop' or to throw the ball into an inner horseshoe. The ball can freely rotate in the hoop and the hoop is attached to a motor which allows us to exert a torque on the hoop. Whatever the task we do, our aim is to damp the undesired oscillations of the ball. In other words, the goal is to calculate a torque acting against the oscillations based on the measured position of the ball. For more details see our paper [1].
+Flying Ball in Hoop is a laboratory model we developed for teaching and showing what advanced control systems can achieve. As the name suggests, the model consists of a ball and a hoop. The ball can freely rotate in the hoop and the hoop is attached to a motor which allows us to exert a torque on the hoop. One can pose and solve various tasks for this model. The tasks can vary from the simpler ones, like stabilizing the ball down in the hoop regardless external disturbances, to more complex ones, like looping the loop or even letting the ball fall from the hoop and land in an inner collector. For more details and some theoretical background see our paper [1].
 
-This repository should help you to make this model on your own. It provides a step-by-step guide. Please bear in mind that the whole project is still in development. That means there is always a plenty of possible improvements and even we ourselves made several changes and deflected slightly from the guide written below.
+We designed this laboratory model with reproducibility in mind; every at least a bit experienced tinkerer should be able to build this model based on the step-by-step guide presented on this web page. Nevertheless, please bear in mind that the whole project is still in development. That means there is always plenty of room for improvements and even we made several changes and deflected slightly from the guide written below.
 
-The theoretical background of the model is explained in following paper [1].
+You can see the previous version of this model in action in the following videos:
 
-To explore our previous version of the model and its capabilities please check these videos:
-
-<https://www.youtube.com/watch?v=484GN4KBQnc>
-
-<https://www.youtube.com/watch?v=8FaNk6C2ckM>
+Loop-the-loop              |  Flying ball
+:-------------------------:|:-------------------------:
+[![](https://img.youtube.com/vi/484GN4KBQnc/0.jpg)](https://www.youtube.com/watch?v=484GN4KBQnc)  |  [![](https://img.youtube.com/vi/8FaNk6C2ckM/0.jpg)](https://www.youtube.com/watch?v=8FaNk6C2ckM)
 
 # Design
 
