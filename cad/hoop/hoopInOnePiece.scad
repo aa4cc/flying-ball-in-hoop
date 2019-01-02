@@ -575,17 +575,13 @@ module ushape(rrr, angl=270) {
 
             
 // ------------ final outputs ------------ 
-//part1();
-//part2();
-//part3();
+part1();
+part2();
+part3();
 
 
-//ushape(ushape_R, 270);
+ushape(ushape_R, 270);
 
-//inner_hoop_part1();
-//inner_hoop_part2();
-//inner_hoop_part3();
-
-backBlackSheet();
+//backBlackSheet();
 
 //rotate([180,0,0])
