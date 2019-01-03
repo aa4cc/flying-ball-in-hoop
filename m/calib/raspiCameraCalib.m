@@ -1,6 +1,23 @@
 addpath('vgg/')
+%% Take a snapshot from the raspi cam
+resp = webread(['http://', ip_rpi, ':', num2str(port_rpi), '/lamp/on']);
+if ~strcmp(resp(1:2), 'OK')
+    error('Raspi-ballpos webserivce is not available.')
+end
+pause(1)
+
+figure(1)
+imagesc(raspiGetImage(ip_rpi, 'Red'));
+axis equal
+webread(['http://', ip_rpi, ':', num2str(port_rpi), '/lamp/off']);
 %%
-load('measured_pos.mat')
+% load('measured_pos.mat')
+
+resp = webread(['http://', ip_rpi, ':', num2str(port_rpi), '/lamp/on']);
+set_param('cameraCalib', 'SimulationCommand', 'start')
+pause(10)
+webread(['http://', ip_rpi, ':', num2str(port_rpi), '/lamp/off']);
+%%
 
 x = measured_pos.signals.values(1,:)';
 y = measured_pos.signals.values(2,:)';
@@ -8,7 +25,6 @@ x_steadypos = x(1);  %x coordinate of the ball in the steady position
 y_steadypos = y(1);  %y coordinate of the ball in the steady position
 
 circle_lsq = @(z) ((x-z(1)).^2 + (y-z(2)).^2 - z(3)^2); % z = [xc; yc; r]
-
 
 %%
 z0 = [240;240;240];
@@ -23,19 +39,14 @@ ximg_circ = r_opt*cos(th) + xc_opt;
 yimg_circ = r_opt*sin(th) + yc_opt;
 figure(1)
 
-plot(x, y, '.')
 hold on
+plot(x, y, '.')
 plot(ximg_circ, yimg_circ)
 plot(x_steadypos, y_steadypos, 'o')
 hold off
 
 axis equal
 set(gca, 'YDir', 'reverse')
-%%
-% server = '192.168.1.16';
-% port = 1150;
-% 
-% rgb_image = RaspiImage(server, port, 'Processor', 'any')
 %%
 xreal_circ = 1e3*(prms.Ro-prms.Rb)*cos(th);
 yreal_circ = 1e3*(prms.Ro-prms.Rb)*sin(th);

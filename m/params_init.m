@@ -94,10 +94,9 @@ prms.uin.KF.R = diag([.01 5 .01]);
 prms.uin.P0 = eye(4);
 prms.uin.x0 = zeros(4,1);
 %%
-ip_host = '147.32.86.211';
-% ip_rpi = '147.32.86.149';
-ip_rpi = '192.168.100.100';
-% ip_rpi = '172.24.1.1';
+% ip_host = '147.32.86.211';
+ip_rpi = '192.168.1.16';
+port_rpi = 5001; % port of the raspi-ballpos webservice
 
 rpi_user = 'pi';
 rpi_passwd = 'mamradtisk';
