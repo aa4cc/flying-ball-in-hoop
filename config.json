@@ -1,0 +1,26 @@
+{
+	"_annotate": "black",
+	"screen_resolution": [1280,800],
+	"white_balance": [1.05, 1.95],
+	"detectors": [
+		{
+			"threshold": 70,
+			"tracking_window": 64,
+			"downsample": 8,
+			"ball_size": [0,150],
+			"color_coefs": [1,-0.5,-0.5],
+			"type": "detector.BallDetector",
+			"name": "Red"
+		}
+	],
+	"exposition_time": 5,
+	"vflip": false,
+	"overlay_alpha": 50,
+	"frame_rate": 50,
+	"img_path": "/home/pi/img/",
+	"hflip": false,
+	"overlay": 2,
+	"resolution": [480,	480],
+	"lamp_control": 21,
+	"lamp_manual": true
+}

@@ -12,7 +12,7 @@ subtitle: Installing and programming
 1) go the the home directory and clone the repository by
 ```
 cd /home/pi/
-git clone https://github.com/aa4cc/flying-ball-in-hoop.git
+git clone --recurse-submodules https://github.com/aa4cc/flying-ball-in-hoop.git
 ```
 
 ## Shutdown button service
